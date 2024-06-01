@@ -1,0 +1,11 @@
+import{a as i,C as p,i as l}from"./assets/vendor-55bcc3c7.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&n(c)}).observe(document,{childList:!0,subtree:!0});function a(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=a(e);fetch(e.href,t)}})();i.defaults.headers.common["x-api-key"]="live_nOdnL3Dj9jjF4zVLjteozldoqmiVUxxCRsrlPoRVyonLQDm4DFuaUNiaRzafsnXC";async function m(){return i.get("https://api.thecatapi.com/v1/breeds")}async function u(s){return i.get("https://api.thecatapi.com/v1/images/search?",{params:{breed_ids:s}})}const o={loader:document.querySelector(".loader"),catInfo:document.querySelector(".cat-info"),select:document.querySelector(".breed-select")},d={class:"promisesToast",position:"topRight",close:!1,timeout:3e3};m().then(s=>{o.select.classList.remove("hide");const r=s.data.map(({id:a,name:n})=>`
+    <option value=${a}>${n}</option>
+  `).join("");o.select.insertAdjacentHTML("afterbegin",r),new p(o.select,{searchEnabled:!0})}).catch(()=>{l.error({message:"❌ Oops! Something went wrong! Try reloading the page!",...d})}).finally(()=>{o.loader.classList.add("hide")});o.select.addEventListener("change",f);function f(){o.catInfo.classList.add("hide"),o.loader.classList.remove("hide"),u(o.select.value).then(s=>{const[{url:r,breeds:[{name:a,description:n,temperament:e}]}]=s.data;console.log("fetchCatByBreed res.data[0]",s.data[0]);const t=`
+        <img src="${r}" alt="${a}">
+        <div class="cat-info-text">
+        <h2>${a}</h2>
+        <p>${n}</p>
+        <p><span>Temperament</span>: ${e}</p>
+        </div>
+        `;o.catInfo.innerHTML=t}).catch(()=>{l.error({message:"❌ Oops! Something went wrong! Try reloading the page!",...d})}).finally(()=>{o.catInfo.classList.remove("hide"),o.loader.classList.add("hide")})}
+//# sourceMappingURL=commonHelpers.js.map
