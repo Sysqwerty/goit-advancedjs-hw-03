@@ -1,0 +1,36 @@
+.form {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.iziToast.promisesToast {
+  padding-left: 18px;
+}
+
+.iziToast.promisesToast > .iziToast-body {
+  margin: 0;
+  padding: 0 !important;
+}
+
+.iziToast.promisesToast > .iziToast-body .iziToast-icon {
+  display: none;
+}
