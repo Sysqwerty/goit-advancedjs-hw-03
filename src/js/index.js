@@ -64,7 +64,6 @@ function handlerSelect() {
         },
       ] = res.data;
 
-      console.log('fetchCatByBreed res.data[0]', res.data[0]);
       const markUp = `
         <img src="${url}" alt="${name}">
         <div class="cat-info-text">
